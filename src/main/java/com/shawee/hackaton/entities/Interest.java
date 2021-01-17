@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.shawee.hackaton.enumerations.InterestType;
 
 @Entity
@@ -22,6 +23,7 @@ public class Interest {
 	private InterestType type;
 	private String category;
 	private String description;
+	@JsonIgnore
 	private User user;
 
 	@Id

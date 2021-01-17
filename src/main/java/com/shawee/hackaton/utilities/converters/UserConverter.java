@@ -21,12 +21,14 @@ public class UserConverter {
 	public static UserResponseDTO entityToDTO(User user) {
 		return new UserResponseDTO()
 				.setId(user.getId())
+				.setFullName(user.getFullName())
 				.setUsername(user.getUsername())
 				.setBirth(user.getBirth())
 				.setDocument(user.getDocument())
 				.setEmail(user.getEmail())
 				.setCity(user.getCity())
-				.setState(user.getState());
+				.setState(user.getState())
+				.setInterests(user.getInterests());
 	}
 	
 }

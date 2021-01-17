@@ -1,7 +1,10 @@
 package com.shawee.hackaton.dtos.response;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
+
+import com.shawee.hackaton.entities.Interest;
 
 public class UserResponseDTO {
 
@@ -15,6 +18,7 @@ public class UserResponseDTO {
 	private String city;
 	private String state;
 	private Set<String> roles;
+	private List<Interest> interests;
 
 	public Long getId() {
 		return id;
@@ -56,6 +60,10 @@ public class UserResponseDTO {
 		return roles;
 	}
 
+	public List<Interest> getInterests() {
+		return interests;
+	}
+	
 	public UserResponseDTO setId(Long id) {
 		this.id = id;
 		return this;
@@ -103,6 +111,11 @@ public class UserResponseDTO {
 	
 	public UserResponseDTO setRoles(Set<String> roles) {
 		this.roles = roles;
+		return this;
+	}
+	
+	public UserResponseDTO setInterests(List<Interest> interests) {
+		this.interests = interests;
 		return this;
 	}
 

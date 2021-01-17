@@ -1,5 +1,8 @@
 package com.shawee.hackaton.controllers;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -7,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +33,12 @@ public class UserController {
 	
 	public UserController(UserService userService) {
 		this.userService = userService;
+	}
+
+	@GetMapping
+	public ResponseEntity<List<UserResponseDTO>> list() {
+		return ResponseEntity.ok(userService.findAll().stream().map(UserConverter::entityToDTO)
+				.collect(Collectors.toList()));
 	}
 
 	@PostMapping
