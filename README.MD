@@ -1,8 +1,8 @@
-# SPRING_API_CHALLENGE
+# SHAWEE HACKATON API
 
 ## API REST desenvolvida com Spring Boot
 
-Deploy para testes no Heroku disponível [aqui](https://springchallenge.herokuapp.com/swagger-ui.html#)
+Deploy para testes no Heroku disponível [aqui](https://shawee-api.herokuapp.com/swagger-ui.html)
 
 ### Tecnologias utilizadas:
 
