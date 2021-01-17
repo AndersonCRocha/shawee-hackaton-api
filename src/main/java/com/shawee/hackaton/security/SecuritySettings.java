@@ -53,10 +53,9 @@ public class SecuritySettings extends WebSecurityConfigurerAdapter {
 			.anyRequest()
 			.authenticated()
 		.and()
-		
 			.addFilterBefore(new CorsFilter(), UsernamePasswordAuthenticationFilter.class)
 			.addFilterBefore(new AuthenticationFilter(jwtUtil, objectMapper, jwtBlacklist, userDetailsService),
-					UsernamePasswordAuthenticationFilter.class);
+					CorsFilter.class);
 	}
 
 	@Override

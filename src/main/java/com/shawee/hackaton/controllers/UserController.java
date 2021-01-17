@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -38,6 +37,7 @@ public class UserController {
 	@GetMapping
 	public ResponseEntity<List<UserResponseDTO>> list() {
 		return ResponseEntity.ok(userService.findAll().stream().map(UserConverter::entityToDTO)
+				.filter(dto -> !dto.getId().equals(1L))
 				.collect(Collectors.toList()));
 	}
 
@@ -50,7 +50,6 @@ public class UserController {
 	}
 
 	@PutMapping("change-password")
-	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<UserResponseDTO> changePassword(HttpServletRequest request,
 			@Valid @RequestBody ChangePasswordRequestDTO changePasswordRequestDTO) {
 		User user = userService.changePassword(changePasswordRequestDTO, request.getHeader(HttpHeaders.AUTHORIZATION));
