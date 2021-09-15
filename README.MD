@@ -2,8 +2,6 @@
 
 ## API REST desenvolvida com Spring Boot
 
-Deploy para testes no Heroku disponível [aqui](https://shawee-api.herokuapp.com/swagger-ui.html)
-
 ### Tecnologias utilizadas:
 
 - Linguagem: Java 8
